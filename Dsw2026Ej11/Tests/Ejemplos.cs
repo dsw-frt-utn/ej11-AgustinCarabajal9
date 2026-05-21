@@ -27,7 +27,7 @@ internal class Ejemplos
             Console.WriteLine(a);
 
         //Buscar por nombre un alumno que exista y mostrar por consola
-        
+
         Console.WriteLine("\n--- Buscar 'Agustin' ---");
         var encontrado = listaAlumnos.BuscarAlumnoPorNombre("Agustin");
         Console.WriteLine(encontrado != null ? encontrado.ToString() : "No existe");//esta linea solo funciona con la segunda implementacion de buscarAlumnoPorNombre
@@ -57,14 +57,37 @@ internal class Ejemplos
 
     }
 
-    //Agregar 3 alumnos al diccionario
-    //Listar por consola los alumnos
-    //Buscar un alumno por clave y mostrar por consola
-    //Buscar un alumno por clave, pero que no exista, y mostrar por consola el texto "No existe"
-    //Eliminar un alumno por clave y listar por consola los alumnos
     public static void EjemploDictionary()
     {
+        Console.WriteLine("════════ DICTIONARY ═══════");
+        CasoDictionary diccionarioAlumnos = new CasoDictionary();
 
+        //Agregar 3 alumnos al diccionario
+        diccionarioAlumnos.Agregar(12421, new Alumno(10, "Agustin", 8.5));
+        diccionarioAlumnos.Agregar(23322, new Alumno(11, "Veronica", 5.5));
+        diccionarioAlumnos.Agregar(31123, new Alumno(12, "Lautaro", 10));
+
+        //Listar por consola los alumnos
+        Console.WriteLine("════════ ALUMNOS EN EL DICCIONARIO═══════");
+        foreach (var a in diccionarioAlumnos.ObtenerDiccionario())
+            Console.WriteLine(a);
+
+        //Buscar un alumno por clave y mostrar por consola
+        Console.WriteLine("\n--- Buscar alumno con clave 12421 ---");
+        var encontrado = diccionarioAlumnos.Buscar(12421);
+        Console.WriteLine(encontrado != null ? encontrado.ToString() : "No existe");
+
+        //Buscar un alumno por clave, pero que no exista, y mostrar por consola el texto "No existe"
+        Console.WriteLine("\n--- Buscar alumno con clave 52295---");
+        var noEncontrado = diccionarioAlumnos.Buscar(52295);
+        Console.WriteLine(noEncontrado != null ? noEncontrado.ToString() : "No existe");
+
+
+        //Eliminar un alumno por clave y listar por consola los alumnos
+        Console.WriteLine("\n--- Eliminar alumno con clave 23322 ---");
+        diccionarioAlumnos.Eliminar(23322);
+        foreach (var a in diccionarioAlumnos.ObtenerDiccionario())
+            Console.WriteLine(a);
     }
 
     //Realizar una llamada a cada método definido en CasoLinq y mostar por consola según corresponda
