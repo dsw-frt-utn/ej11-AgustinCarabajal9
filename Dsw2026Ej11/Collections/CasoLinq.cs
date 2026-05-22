@@ -52,9 +52,9 @@ public class CasoLinq
     }
 
     //5
-    public List<Libro> GetListPorId()
+    public List<Libro> GetListById(int x)
     {
-        return libros.Where(l => l.Id > 15).ToList();
+        return libros.Where(l => l.Id > x).ToList();
     }
 
     //6
