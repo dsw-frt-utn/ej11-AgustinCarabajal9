@@ -76,7 +76,7 @@ public class CasoLinq
     }
 
     //9
-    public List<Libro> GetMayorAlPromedio()
+    public List<Libro> GetMayorPromedio()
     {
         double promedio = GetPromedioPrecios();
         return libros.Where(l => l.Precio > (decimal)promedio).ToList();

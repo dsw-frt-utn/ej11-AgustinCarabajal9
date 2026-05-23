@@ -133,8 +133,10 @@ internal class Ejemplos
         if (libroMayorPrecio != null)
         {
             Console.WriteLine($"ID: {libroMayorPrecio.Id}, Título: {libroMayorPrecio.Titulo}, Precio: {libroMayorPrecio.Precio:C}");
-        }else 
-        { Console.WriteLine("No existe"); 
+        }
+        else
+        {
+            Console.WriteLine("No existe");
         }
 
         // * 8.Obtener el libro con el precio más bajo(GetMenorPrecio)
@@ -150,9 +152,17 @@ internal class Ejemplos
         }
 
         // * 9.Obtener los libros cuyo precio sea mayor al promedio(GetMayorPromedio)
-
+        Console.WriteLine($"\n--- Obtener los libros cuyo precio sea mayor al promedio ---");
+        foreach (var libro in linq.GetMayorPromedio())
+        {
+            Console.WriteLine($"ID: {libro.Id}, Título: {libro.Titulo}, Precio: {libro.Precio:C}");
+        }
 
         // *10.Obtener los libros ordenados por título de forma descendente
-
+        Console.WriteLine($"\n--- Obtener los libros ordenados por título de forma descendente ---");
+        foreach (var libro in linq.GetLibrosPorTituloDescendente())
+        {
+            Console.WriteLine($"ID: {libro.Id}, Título: {libro.Titulo}, Precio: {libro.Precio:C}");
+        }
     }
 }
